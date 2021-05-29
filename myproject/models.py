@@ -40,7 +40,7 @@ class User(db.Model, UserMixin):
         # https://stackoverflow.com/questions/23432478/flask-generate-password-hash-not-constant-output
         return check_password_hash(self.password_hash,password)
 
-class Class(db.Model):
+class Classes(db.Model):
     __tablename__ = 'classes'
 
     id = db.Column(db.Integer, primary_key = True)

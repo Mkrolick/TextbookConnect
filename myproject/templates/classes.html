@@ -1,8 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="container">
-{% for class in classes %}
-  <a href="#">class.name</a>
-{% end for %}
+  {% for class in classes %}
+    <a href="{{ url_for('Login.login') }}">{{class.name}}</a>
+  {% endfor %}
+  <a href="{{ url_for('class', class) }}">aaa</a>
 </div>
 {% endblock %}
