@@ -2,6 +2,7 @@ from myproject import app,db
 from flask import render_template, redirect, request, url_for, flash,abort, Response
 from flask_login import login_user,login_required,logout_user, current_user
 from myproject.models import User, Classes, Books, Offers
+from myproject.models import Classes as bb
 from werkzeug.security import generate_password_hash, check_password_hash
 from myproject.Login.forms import LoginForm
 
@@ -14,7 +15,7 @@ def Home():
 @app.route('/classes')
 @login_required
 def Classes():
-    return render_template('classes.html', Classes=Classes.query.all())
+    return render_template('classes.html', Classes=bb.query.all())
 
 @app.route('/class')
 @login_required

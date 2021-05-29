@@ -37,7 +37,6 @@ class User(db.Model, UserMixin):
         self.tables_created = tables_created
 
     def check_password(self,password):
-        # https://stackoverflow.com/questions/23432478/flask-generate-password-hash-not-constant-output
         return check_password_hash(self.password_hash,password)
 
 class Classes(db.Model):
@@ -47,7 +46,7 @@ class Classes(db.Model):
     name = db.Column(db.String(64), unique=True, index=True)
     books = db.Column(db.PickleType)
 
-    def __init__(self, name, books, whatClasses):
+    def __init__(self, name, books):
         self.name = name
         self.books = books
 
