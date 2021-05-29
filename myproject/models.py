@@ -26,6 +26,8 @@ class User(db.Model, UserMixin):
     password_hash = db.Column(db.String(128))
     permission_level = db.Column(db.Integer)
     tables_created = db.Column(db.Integer)
+    phoneNumber = db.Column(db.String(128))
+    location = db.Column(db.String(128))
 
     def __init__(self, email, username, password, permission_level, tables_created):
         self.email = email
@@ -38,15 +40,29 @@ class User(db.Model, UserMixin):
         # https://stackoverflow.com/questions/23432478/flask-generate-password-hash-not-constant-output
         return check_password_hash(self.password_hash,password)
 
+class Class(db.Model):
+    __tablename__ = 'classes'
+
+    id = db.Column(db.Integer, primary_key = True)
+    name = db.Column(db.String(64), unique=True, index=True)
+    books = db.Column(db.PickleType)
+
+    def __init__(self, name, books, whatClasses):
+        self.name = name
+        self.books = books
+
+
 class Books(db.Model):
     __tablename__ = 'books'
 
     id = db.Column(db.Integer, primary_key = True)
     name = db.Column(db.String(64), unique=True, index=True)
-    catagory = db.Column(db.String(64), index=True)
-    whatClasses = db.Column(db.PickleType)
 
     def __init__(self, name, catagory, whatClasses):
         self.name = name
-        self.catagory = catagory
-        self.whatClass = whatClasses
+
+class Offers(db.Model):
+    __tablename__ = 'offers'
+    id = db.Column(db.Integer, primary_key = True)
+    bookId =  db.Column(db.Integer, primary_key = True)
+    sellerId = db.Column(db.Integer, primary_key = True)
