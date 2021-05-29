@@ -17,23 +17,6 @@ def home():
 def welcome_user():
     return render_template('welcome_user.html')
 
-@app.route('/admin')
-@login_required
-def console():
-    if (current_user.permission_level == 4):
-        return render_template('admin.html', Users=User.query.all())
-    else:
-        return redirect(url_for('home'))
-
-@app.route('/webhook', methods=['POST'])
-def webhook():
-    print(request.json)
-    return Response(status=200)
-
-@app.route('/plans')
-def plans():
-    return render_template('plans.html')
-
 
 
 
