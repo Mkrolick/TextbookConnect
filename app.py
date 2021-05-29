@@ -12,7 +12,7 @@ def home():
     return render_template('home.html')
 
 
-@app.route('/books_listings)
+@app.route('/books_listings')
 @login_required
 def welcome_user():
     return render_template('book_listings.html')

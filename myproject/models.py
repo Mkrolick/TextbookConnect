@@ -44,10 +44,9 @@ class Books(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     name = db.Column(db.String(64), unique=True, index=True)
     catagory = db.Column(db.String(64), index=True)
-    whatClass = db.Column(db.PickleType)
+    whatClasses = db.Column(db.PickleType)
 
-    def __init__(self, name, catagory, whatClass):
+    def __init__(self, name, catagory, whatClasses):
         self.name = name
         self.catagory = catagory
-        self.class = whatClass
-        self.whatClass = whatClass
+        self.whatClass = whatClasses
