@@ -43,7 +43,7 @@ class Classes(db.Model):
     __tablename__ = 'classes'
 
     id = db.Column(db.Integer, primary_key = True)
-    name = db.Column(db.String(64), unique=True, index=True)
+    name = db.Column(db.String(64))
     books = db.Column(db.PickleType)
 
     def __init__(self, name, books):
