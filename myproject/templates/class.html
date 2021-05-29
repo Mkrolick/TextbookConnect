@@ -2,7 +2,8 @@
 {% block content %}
 <div class="container">
   {% for book in Class.books %}
-    <a href="{{ url_for('book', book) }}">{{book}}</a>
-  {% end for %}
+    <a href="{{ url_for('Book', bookName = book.name) }}">{{book}}</a>
+    <br>
+  {% endfor %}
 </div>
 {% endblock %}

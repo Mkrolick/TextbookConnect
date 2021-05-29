@@ -17,15 +17,16 @@ def Home():
 def Classes():
     return render_template('classes.html', Classes=bb.query.all())
 
-@app.route('/class')
+@app.route('/class/<className>')
 @login_required
-def Class(Class):
+def Class(className):
+    Class = bb.query.filter_by(name=className).first()
     return render_template('class.html', Class=Class)
 
-@app.route('/book')
+@app.route('/book/<bookName>')
 @login_required
-def Book(bookname):
-    return render_template('bookpage.html', Book=Books.query.filter_by(name=bookname).first())
+def Book(bookName):
+    return render_template('bookpage.html', Book=Books.query.filter_by(name=bookName).first())
 
 #me = bb('CS102 - Introduction to Computing Principles', [ "How to Prove It: A Structured Approach" , "Code: The Hidden Language of Computer Hardware and Software"])
 #db.session.add(me)
