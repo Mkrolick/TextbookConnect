@@ -12,10 +12,10 @@ def home():
     return render_template('home.html')
 
 
-@app.route('/welcome')
+@app.route('/books_listings)
 @login_required
 def welcome_user():
-    return render_template('welcome_user.html')
+    return render_template('book_listings.html')
 
 
 
