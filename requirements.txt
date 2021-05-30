@@ -1,7 +1,0 @@
-stuff you need to import
-
-pip install flask
-pip install flask-wtf
-pip install flask_sqlalchemy
-pip install flask_migrate
-pip install email_validator
