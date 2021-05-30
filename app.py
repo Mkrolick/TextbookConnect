@@ -75,9 +75,9 @@ def DisplayBook(bookName):
     OfferList = Offers.query.filter_by(bookId= Book.id).all()
     return render_template('bookpage.html', Book=Books.query.filter_by(name=bookName).first(), Offers=OfferList, User=User)
 
-#me = bb('CS102 - Introduction to Computing Principles', [ "How to Prove It A Structured Approach" , "Code The Hidden Language of Computer Hardware and Software"])
-#db.session.add(me)
-#db.session.commit()
+me = bb('English 507', [ "Othello" , "Java"])
+db.session.add(me)
+db.session.commit()
 
 app.cli.add_command(create_tables)
 
