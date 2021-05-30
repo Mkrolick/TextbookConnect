@@ -90,8 +90,8 @@ nav .top-button:hover::before {
     width: 100%;
 }
 
-nav .account-button:hover {
-    width:51%;
+nav a.account-button {
+
 }
 
 .search-button {
