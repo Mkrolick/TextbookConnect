@@ -13,17 +13,17 @@ login_manager = LoginManager()
 app = Flask(__name__)
 
 
-# Often people will also separate these into a separate config.py file
-app.config['SECRET_KEY'] = 'mysecretkey'
-basedir = os.path.abspath(os.path.dirname(__file__))
-
+if local:
+    SQLite_Database =  'sqlite:///' + os.path.join(basedir, 'data.sqlite')
+    app.config['SQLALCHEMY_DATABASE_URI'] = SQLite_Database
+else:
+    try:
+        app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://' + re.search('(.*)://(.*)' , os.environ.get('DATABASE_URL')).group(2)
+    except:
+        pass
 #'sqlite:///' + os.path.join(basedir, 'data.sqlite')
 
 #Postgre_Database_URL = 'postgresql://' + re.search('(.*)://(.*)' , os.environ.get('DATABASE_URL')).group(2)
-SQLite_Database =  'sqlite:///' + os.path.join(basedir, 'data.sqlite')
-
-
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://' + re.search('(.*)://(.*)' , os.environ.get('DATABASE_URL')).group(2)
 
 
 
