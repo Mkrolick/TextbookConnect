@@ -46,3 +46,11 @@
 .fancy-table tbody tr:last-of-type {
     border-bottom: thick solid gray;
 }
+
+.form-control me-2{
+    margin: 10px;
+}
+
+btn btn-primary {
+    margin: 10px;
+}
