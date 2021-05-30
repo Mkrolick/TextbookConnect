@@ -6,7 +6,7 @@ from flask_login import LoginManager
 import re
 
 
-local = False
+local = True
 # Create a login manager object
 login_manager = LoginManager()
 
