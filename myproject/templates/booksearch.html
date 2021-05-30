@@ -1,9 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="container">
+  {% if stuff %}
   {% for book in BookList %}
     <a href="{{ url_for('DisplayBook', bookName = book.name ) }}">{{book.name}}</a>
     <br>
   {% endfor %}
+  {% else %}
+    <p>No books found</p>
+  {% endif %}
 </div>
 {% endblock %}

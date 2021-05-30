@@ -8,7 +8,7 @@ from myproject.Login.forms import LoginForm
 
 @app.route('/handle_data', methods=['POST'])
 def handle_data():
-    projectpath = request.form.get('text')
+    projectpath = request.form.get('Search')
     return redirect(url_for('BookSearch', bookName = projectpath))
 
 @app.route('/create_request/<bookId>', methods=['POST'])
@@ -26,6 +26,7 @@ def Home():
     return render_template('home.html')
 
 
+
 @app.route('/classes')
 @login_required
 def Classes():
@@ -41,6 +42,7 @@ def ClassQuery(className):
 @app.route('/bookSearch/<bookName>')
 @login_required
 def BookSearch(bookName):
+    stuff = True
     BooksQuery = Books.query.all()
     BookList = []
     for book in BooksQuery:
@@ -50,7 +52,20 @@ def BookSearch(bookName):
         BookList = []
         for book in Books.query.all():
             BookList.append(book)
-    return render_template('booksearch.html', BookList=BookList)
+    if (BookList == []):
+        stuff = False
+    return render_template('booksearch.html', BookList=BookList, stuff=stuff)
+
+@app.route('/bookAll')
+@login_required
+def BookAll():
+    stuff = True
+    BooksQuery = Books.query.all()
+    BookList = []
+    for book in Books.query.all():
+        BookList.append(book)
+    return render_template('booksearch.html', BookList=BookList, stuff=stuff)
+
 
 @app.route('/book/<bookName>')
 @login_required
