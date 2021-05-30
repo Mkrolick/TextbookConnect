@@ -28,7 +28,7 @@ def Class(className):
 def DisplayBook(bookName):
     return render_template('bookpage.html', Book=Books.query.filter_by(name=bookName).first())
 
-#me = bb('CS102 - Introduction to Computing Principles', [ "How to Prove It: A Structured Approach" , "Code: The Hidden Language of Computer Hardware and Software"])
+#me = bb('CS102 - Introduction to Computing Principles', [ "How to Prove It A Structured Approach" , "Code The Hidden Language of Computer Hardware and Software"])
 #db.session.add(me)
 #db.session.commit()
 

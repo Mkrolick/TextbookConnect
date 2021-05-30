@@ -1,4 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
-aaadadad
+<b><p> {{Book.name}} </p></b>
+
+<img src="/static/{{Book.name}}.jpg">
+
+
 {% endblock %}
+<!--
+"{{url_for('static', filename=Book.name)}}"
+"{{ "/static/" + Book.name }}"
+-->
