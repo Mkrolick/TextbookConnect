@@ -28,10 +28,11 @@
     {% endfor %}
   </tbody>
 </table>
+<br>
 Create Request: <br>
 <form class="d-flex" action="{{ url_for('create_request', bookId = Book.id) }}" method="POST" name="projectFilepath">
-  <input name="text" class="form-control me-2" type="search" placeholder="Price" aria-label="Search">
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <input name="text" id="bookpage-search" class="form-control me-2" type="search" placeholder="Price" aria-label="Search">
+  <button type="submit" id="bookpage-submit" class="btn btn-primary">Submit</button>
 </form>
 
 

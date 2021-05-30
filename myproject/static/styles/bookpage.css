@@ -46,3 +46,12 @@
 .fancy-table tbody tr:last-of-type {
     border-bottom: thick solid gray;
 }
+
+#bookpage-search{
+    margin: 20px;
+    width: 50%;
+}
+
+#bookpage-submit{
+    margin: 20px;
+}
