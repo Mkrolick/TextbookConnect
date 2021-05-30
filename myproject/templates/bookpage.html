@@ -2,14 +2,14 @@
 {% block content %}
 <head>
   <!-- CSS only -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-<link href="{{ url_for('static',filename='styles/base-style.css') }}" rel="stylesheet" type="text/css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  <link href="{{ url_for('static',filename='styles/bookpage.css') }}" rel="stylesheet" type="text/css">
 
-  </head>
-<b><p style="margin: 20px;"> {{Book.name}} </p></b>
+</head>
+<b><p id="book-name"> {{Book.name}} </p></b>
 
-<img style="width:800px; height:900px; margin:20px;" src="/static/{{Book.name}}.jpg">
-<table class="table">
+<img id="book-image" src="/static/{{Book.name}}.jpg">
+<table class="fancy-table">
   <thead>
     <tr>
       <th scope="col">Username</th>
