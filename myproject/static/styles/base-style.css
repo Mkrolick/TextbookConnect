@@ -73,7 +73,7 @@ nav ul li a:hover{
     color:#D0D1D6;
 }
 
-nav .top-button::before {
+nav a::before {
     content:'';
     display: block;
     height: 2px;
@@ -86,7 +86,7 @@ nav .top-button::before {
     transition: all ease-in-out 250ms;
 }
 
-nav .top-button:hover::before {
+nav a:hover::before {
     width: 100%;
 }
 
