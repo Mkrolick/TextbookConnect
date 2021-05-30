@@ -5,6 +5,7 @@ from myproject.models import User, Classes, Books, Offers
 from myproject.models import Classes as bb
 from werkzeug.security import generate_password_hash, check_password_hash
 from myproject.Login.forms import LoginForm
+from commands import create_tables
 
 @app.route('/handle_data', methods=['POST'])
 def handle_data():
