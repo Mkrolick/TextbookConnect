@@ -19,6 +19,10 @@
             <li class="nav-item">
               <a class="nav-link" href="{{ url_for('Classes') }}"> Classes</a>
             </li>
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit" onclick="searchClick()">Search</button>
+            </form>
             {% else %}
             <li class="nav-item">
               <a class="nav-link" href="{{ url_for('Login.login') }}"> Login</a>
@@ -35,5 +39,12 @@
 
     {% endblock %}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+    <script>
+      var searchClick = function() {
+      var text = document.getElementById("text-form").value;
+      // alert(text);
+      window.location.replace = "http://127.0.0.1:5000/bookSearch/" + text;
+      }
+    </script>
   </body>
 </html>

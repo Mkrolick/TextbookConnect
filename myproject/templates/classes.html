@@ -2,7 +2,7 @@
 {% block content %}
 <div class="container">
   {% for class in Classes %}
-    <a href="{{ url_for('Class', className = class.name) }}">{{class.name}}</a>
+    <a href="{{ url_for('ClassQuery', className = class.name) }}">{{class.name}}</a>
     <br>
   {% endfor %}
   <a href="{{ url_for('Login.login') }}">aaa</a>

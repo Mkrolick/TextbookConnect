@@ -19,13 +19,29 @@ def Classes():
 
 @app.route('/class/<className>')
 @login_required
-def Class(className):
+def ClassQuery(className):
     Class = bb.query.filter_by(name=className).first()
+    Class = [Class]
     return render_template('class.html', Class=Class)
+
+@app.route('/bookSearch/<bookName>')
+@login_required
+def BookSearch(bookName):
+    BooksQuery = Books.query.all()
+    BookList = []
+    for book in BooksQuery:
+        if bookName in book.name:
+            BookList.append(book)
+    if (bookName == 'All'):
+        BookList = []
+        for book in Books.query.all():
+            BookList.append(book)
+    return render_template('booksearch.html', BookList=BookList)
 
 @app.route('/book/<bookName>')
 @login_required
 def DisplayBook(bookName):
+    Book = Books.query.filter_by(name=bookName).first()
     return render_template('bookpage.html', Book=Books.query.filter_by(name=bookName).first())
 
 #me = bb('CS102 - Introduction to Computing Principles', [ "How to Prove It A Structured Approach" , "Code The Hidden Language of Computer Hardware and Software"])
