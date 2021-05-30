@@ -27,6 +27,7 @@ def register():
         user = User(email=form.email.data,
                     username=form.username.data,
                     password=form.password.data,
+                    phoneNumber=form.phoneNumber.data,
                     permission_level=0,
                     tables_created = 0)
 

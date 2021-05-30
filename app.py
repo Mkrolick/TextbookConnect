@@ -6,6 +6,20 @@ from myproject.models import Classes as bb
 from werkzeug.security import generate_password_hash, check_password_hash
 from myproject.Login.forms import LoginForm
 
+@app.route('/handle_data', methods=['POST'])
+def handle_data():
+    projectpath = request.form.get('text')
+    return redirect(url_for('BookSearch', bookName = projectpath))
+
+@app.route('/create_request/<bookId>', methods=['POST'])
+def create_request(bookId):
+    price = request.form.get('text')
+    bookwsId = int(bookId)
+    newOffer = Offers( bookwsId, current_user.id , int(price))
+    db.session.add(newOffer)
+    db.session.commit()
+    return render_template('home.html')
+    # redirect(url_for('DisplayBook', bookName = book))
 
 @app.route('/')
 def Home():
@@ -42,7 +56,8 @@ def BookSearch(bookName):
 @login_required
 def DisplayBook(bookName):
     Book = Books.query.filter_by(name=bookName).first()
-    return render_template('bookpage.html', Book=Books.query.filter_by(name=bookName).first())
+    OfferList = Offers.query.filter_by(bookId= Book.id).all()
+    return render_template('bookpage.html', Book=Books.query.filter_by(name=bookName).first(), Offers=OfferList, User=User)
 
 #me = bb('CS102 - Introduction to Computing Principles', [ "How to Prove It A Structured Approach" , "Code The Hidden Language of Computer Hardware and Software"])
 #db.session.add(me)

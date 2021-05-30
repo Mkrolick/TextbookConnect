@@ -29,10 +29,11 @@ class User(db.Model, UserMixin):
     phoneNumber = db.Column(db.String(128))
     location = db.Column(db.String(128))
 
-    def __init__(self, email, username, password, permission_level, tables_created):
+    def __init__(self, email, username, password, phoneNumber, permission_level, tables_created):
         self.email = email
         self.username = username
         self.password_hash = generate_password_hash(password)
+        self.phoneNumber = phoneNumber
         self.permission_level = permission_level
         self.tables_created = tables_created
 
@@ -63,5 +64,11 @@ class Books(db.Model):
 class Offers(db.Model):
     __tablename__ = 'offers'
     id = db.Column(db.Integer, primary_key = True)
-    bookId =  db.Column(db.Integer, primary_key = True)
-    sellerId = db.Column(db.Integer, primary_key = True)
+    bookId =  db.Column(db.Integer)
+    sellerId = db.Column(db.Integer)
+    price = db.Column(db.Integer)
+
+    def __init__(self, bookId, sellerId, price):
+        self.bookId = bookId
+        self.sellerId = sellerId
+        self.price = price

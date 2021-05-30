@@ -3,8 +3,30 @@
 <b><p> {{Book.name}} </p></b>
 
 <img src="/static/{{Book.name}}.jpg">
-
-
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Username</th>
+      <th scope="col">Email</th>
+      <th scope="col">Price</th>
+      <th scope="col">Phone Number</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for Offer in Offers%}
+    <tr>
+      <th scope="row">{{User.query.filter_by(id = Offer.sellerId).first().username}}</th>
+      <td>{{User.query.filter_by(id = Offer.sellerId).first().email}}</td>
+      <td>{{Offer.price}}</td>
+      <td>{{User.query.filter_by(id = Offer.sellerId).first().phoneNumber}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<form class="d-flex" action="{{ url_for('create_request', bookId = Book.id) }}" method="POST" name="projectFilepath">
+  <input name="text" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
 {% endblock %}
 <!--
 "{{url_for('static', filename=Book.name)}}"
