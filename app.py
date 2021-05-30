@@ -5,6 +5,7 @@ from myproject.models import User, Classes, Books, Offers
 from myproject.models import Classes as bb
 from werkzeug.security import generate_password_hash, check_password_hash
 from myproject.Login.forms import LoginForm
+from commands import create_tables
 
 @app.route('/handle_data', methods=['POST'])
 def handle_data():
@@ -78,6 +79,8 @@ def DisplayBook(bookName):
 #db.session.add(me)
 #db.session.commit()
 
+app.cli.add_command(create_tables)
+
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
