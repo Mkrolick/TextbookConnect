@@ -47,10 +47,11 @@
     border-bottom: thick solid gray;
 }
 
-.form-control me-2{
-    margin: 10px;
+#bookpage-search{
+    margin: 20px;
+    width: 50%;
 }
 
-btn btn-primary {
-    margin: 10px;
+#bookpage-submit{
+    margin: 20px;
 }
