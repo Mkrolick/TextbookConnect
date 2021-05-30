@@ -75,9 +75,7 @@ def DisplayBook(bookName):
     OfferList = Offers.query.filter_by(bookId= Book.id).all()
     return render_template('bookpage.html', Book=Books.query.filter_by(name=bookName).first(), Offers=OfferList, User=User)
 
-me = bb('English 507', [ "Othello" , "Java"])
-db.session.add(me)
-db.session.commit()
+
 
 app.cli.add_command(create_tables)
 
