@@ -11,7 +11,8 @@ local = True
 login_manager = LoginManager()
 
 app = Flask(__name__)
-
+app.config['SECRET_KEY'] = 'mysecretkey'
+basedir = os.path.abspath(os.path.dirname(__file__))
 
 if local:
     SQLite_Database =  'sqlite:///' + os.path.join(basedir, 'data.sqlite')
