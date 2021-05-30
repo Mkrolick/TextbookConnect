@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400&display=swap');
+
+body {
+    font-family: 'Raleway', sans-serif;
+    text-align: left;
+    background-color: #f2f2f2;
+}
+
+.guide {
+    margin: 25px;
+    margin-top: 50px;
+    font-size: 20px;
+}
+
+#money-icon {
+    width: 45%;
+    animation: rotation 12s infinite linear;
+}
+
+@keyframes rotation {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(359deg);
+    }
+}
+
+#book-icon {
+    width: 45%;
+}
+
+.top-section {
+    /* border: thick solid black; */
+}
+
+.top-text {
+    display: inline-block;
+    position: relative;
+    margin: 25px;
+    /* border: thick solid black; */
+}
+
+.top-section h5{
+    font-size: 35px;
+}
+
+.top-images {
+    /* border: thick solid black; */
+    display: inline-block;
+    position: relative;
+}
+
+h6 {
+    font-size: 25px;
+    margin: 25px;
+    
+}
+
