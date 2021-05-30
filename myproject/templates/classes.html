@@ -1,8 +1,24 @@
 {% extends "base.html" %}
 {% block content %}
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400&display=swap%27');
+  #class-list{
+    margin: 20px;
+    font-family: 'Raleway', sans-serif;
+    text-decoration: none;
+    color: black;
+    font-size: 30px;
+    padding: 10px;
+  }
+  #class-list:hover{
+    color: gray;
+  }
+</style>
+<br>
 <div class="container">
   {% for class in Classes %}
-    <a href="{{ url_for('ClassQuery', className = class.name) }}">{{class.name}}</a>
+    <a id="class-list" href="{{ url_for('ClassQuery', className = class.name) }}">{{class.name}}</a>
+    <br>
     <br>
   {% endfor %}
 </div>

@@ -1,9 +1,25 @@
 {% extends "base.html" %}
 {% block content %}
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400&display=swap%27');
+  #book-list{
+    margin: 20px;
+    font-family: 'Raleway', sans-serif;
+    text-decoration: none;
+    color: black;
+    font-size: 30px;
+    padding: 10px;
+  }
+  #book-list:hover{
+    color: gray;
+  }
+</style>
 <div class="container">
+  <br>
   {% if stuff %}
   {% for book in BookList %}
-    <a href="{{ url_for('DisplayBook', bookName = book.name ) }}">{{book.name}}</a>
+    <a id="book-list" href="{{ url_for('DisplayBook', bookName = book.name ) }}">{{book.name}}</a>
+    <br>
     <br>
   {% endfor %}
   {% else %}
