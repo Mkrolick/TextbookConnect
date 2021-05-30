@@ -78,6 +78,8 @@ def DisplayBook(bookName):
 #db.session.add(me)
 #db.session.commit()
 
+app.cli.add_command(create_tables)
+
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
