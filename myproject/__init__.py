@@ -23,13 +23,8 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 SQLite_Database =  'sqlite:///' + os.path.join(basedir, 'data.sqlite')
 
 
-if local:
-    app.config['SQLALCHEMY_DATABASE_URI'] = SQLite_Database
-else:
-    try:
-        app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://' + re.search('(.*)://(.*)' , os.environ.get('DATABASE_URL')).group(2)
-    except:
-        pass
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://' + re.search('(.*)://(.*)' , os.environ.get('DATABASE_URL')).group(2)
+
 
 
 
