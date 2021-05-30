@@ -1,11 +1,25 @@
 {% extends "base.html" %}
 {% block content %}
+<style media="screen">
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400&display=swap%27');
+#text{
+  margin: 10px;
+  font-family: 'Raleway', sans-serif;
+  text-decoration: none;
+  color: black;
+  font-size: 30px;
+  padding: 10px;
+}
+#text:hover{
+  color: gray;
+}
+</style>
 <form method="POST">
     {# This hidden_tag is a CSRF security feature. #}
     {{ form.hidden_tag() }}
-    {{ form.email.label }} {{ form.email() }}
-    {{ form.password.label }} {{ form.password() }}
-    {{ form.submit() }}
+    {{ form.email.label }} {{ form.email() }}<br>
+    {{ form.password.label }} {{ form.password() }}<br>
+    {{ form.submit() }}<br>
 </form>
 <br>
 {% with messages = get_flashed_messages(with_categories=true) %}
@@ -20,5 +34,5 @@
   {% endif %}
 {% endwith %}
 <br>
-<a href="register">Don't Have an Account? Click Here</a>
+<a id ="text" href="register">Don't Have an Account? Click Here</a>
 {% endblock %}
