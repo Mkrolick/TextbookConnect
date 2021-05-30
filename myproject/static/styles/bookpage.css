@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400&display=swap');
+
+#book-image {
+    width:800px; 
+    height:900px; 
+    margin:20px
+}
+
+#book-name {
+    margin: 20px;
+}
+
+.fancy-table {
+    margin: 25px 0;
+    border-collapse: collapse;
+    font-size: 0.9em;
+    font-family: Raleway;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.fancy-table thead tr {
+    background-color: gray;
+    color: #ffffff;
+    text-align: left;
+}
+
+.fancy-table th,
+.fancy-table td {
+    padding: 12px 15px;
+}
+
+.fancy-table {
+    font-weight: bold;
+    color: gray;
+}
+
+.fancy-table tbody tr {
+    border-bottom: thin solid #dddddd;
+}
+
+.fancy-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;    
+}
+
+.fancy-table tbody tr:last-of-type {
+    border-bottom: thick solid gray;
+}
