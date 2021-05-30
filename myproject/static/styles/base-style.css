@@ -90,9 +90,6 @@ nav a:hover::before {
     width: 100%;
 }
 
-nav a.account-button {
-
-}
 
 .search-button {
     background-color: transparent;
