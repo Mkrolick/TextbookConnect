@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400&display=swap');
 
 #book-image {
-    width:800px;
-    height:900px;
+    width:800px; 
+    height:900px; 
     margin:20px
 }
 
@@ -33,7 +33,6 @@
 .fancy-table {
     font-weight: bold;
     color: gray;
-    margin-left: 20px;
 }
 
 .fancy-table tbody tr {
@@ -41,7 +40,7 @@
 }
 
 .fancy-table tbody tr:nth-of-type(even) {
-    background-color: #f3f3f3;
+    background-color: #f3f3f3;    
 }
 
 .fancy-table tbody tr:last-of-type {
